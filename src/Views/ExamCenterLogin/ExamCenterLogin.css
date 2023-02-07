@@ -1,0 +1,224 @@
+.exam_login_page_main_container
+{
+  width: 100%;
+  height: max(100vh,750px) !important;
+   background-color: #2b3b59;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   font-family: system-ui;
+   text-align: center;
+}
+.exam_login_page_main_container_max
+{
+    width: 100%;
+    height: 100%;
+    max-width: 1600px;
+    max-height: 1000px;
+    background-color: #2b3b59;
+    margin: auto;
+    display: flex;
+    
+}
+.exam_login_page_main_container_max_left_container
+{
+    width: 50%;
+    height:  99%;
+   border: 1px solid transparent;
+   margin: auto;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+
+}
+.exam_login_page_main_container_max_right_container
+{
+    width: 50%;
+    height:  99%;
+   border: 1px solid transparent;
+   margin: auto;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+
+}
+.exam_login_right_image_contianers
+{
+    background-color: transparent;
+    height: 100%;
+    width: 100%;
+    border-radius: 1.9rem;
+    position: relative;
+    overflow: initial;
+    
+}
+.exam_login_right_image_contianers img
+{
+  width: 100%;
+  left: 0;
+  position: absolute;
+  bottom: 0;
+}
+.exam_login_page_left_text_contianer
+{
+   width: 90%;
+   height: 90%;
+   border: 2px solid transparent;
+   margin-left: auto; 
+   max-height: 500px;
+}
+.exam_login_logo
+{
+
+    width: 90%;
+    text-align: left;
+    margin: auto;
+    margin-left: 3.4%;
+    margin-top: -1rem;
+}
+.exam_login_logo img
+{
+    width: 8rem;
+    margin-bottom: -2rem;
+}
+.exam_login_page_left_text_contianer h1
+{
+    margin: 0;
+    margin: auto;
+    width: 90%;
+    text-align: left;
+   color: #FFFFFF;
+   font-size: clamp(1.4rem,1.7vw,1.7rem);
+   margin-top: max(4rem,6vh);
+   
+}
+.exam_username_div
+{
+  width: 90%;
+  margin: auto;
+  text-align: left;
+  margin-top: max(4vh,2rem);
+}
+.exam_username_div p
+{
+    font-size: 1.14rem;
+    margin: 0;
+    color: white;
+    margin-bottom: 0.6rem;
+}
+.exam_username_div input
+{
+    width: 90%;
+    max-width: 400px;
+    height: 2.2rem;
+    background-color: transparent;
+    border: none;
+    border: 1.7px solid white;
+    border-radius: 1.4rem;
+    font-weight: bold;
+    font-size: 1.1rem;
+    color: white;
+    padding-left: 0.9rem;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+.exam_username_div input:focus
+{
+    border: 1.7px solid transparent;
+    outline: 2px solid white;
+   
+}
+.exam_password_div
+{
+    width: 90%;
+  margin: auto;
+  text-align: left;
+  margin-top: 1.5rem
+}
+.exam_password_div p
+{
+    font-size: 1.14rem;
+    margin: 0;
+    color: white;
+    margin-bottom: 0.6rem;
+}
+.exam_password_div input
+{
+    width: 90%;
+    max-width: 400px;
+    height: 2.2rem;
+    background-color: transparent;
+    border: none;
+    border: 1.7px solid white;
+    border-radius: 1.4rem;
+    color: white;
+    font-weight: bold;
+    font-size: 1.1rem;
+    padding-left: 0.9rem;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+.exam_password_div input:focus
+{
+    border: 1.7px solid transparent;
+    outline: 2px solid white;
+   
+}
+.exam_login_button
+{
+    width: 90%;
+    margin: auto;
+    text-align: left;
+    margin-top: 3rem;
+
+}
+.exam_login_button button
+{
+    background-color: #CCE9FF;
+    color: #2B3B59;
+    width: 91%;
+    padding-top: 0.7rem;
+    padding-bottom: 0.7rem;
+    max-width: 417px;
+    border-radius: 1.3rem;
+    border: none;
+    outline: none;
+    font-weight: bold;
+    font-size: 1rem;
+    cursor: pointer;
+}
+.exam_login_button button:hover
+{
+    background-color: #73b4e6;
+}
+.exam_forget_password 
+{
+    width: 90%;
+    margin: auto;
+    color: white;
+    text-align: left;
+    cursor: pointer;
+}
+@media screen and (max-width:1000px) {
+   .exam_login_right_image_contianer
+   {
+    height: 80%;
+    max-height: 590px;
+   }
+}
+@media screen and (max-width:800px) {
+    .exam_login_right_image_contianer
+    {
+     height: 80%;
+     max-height: 540px;
+    }
+ }
+
+ @media screen and (max-width:700px){
+    .exam_login_page_main_container_max_right_container
+    {
+        display: none;
+    }
+    .exam_login_page_main_container_max_left_container
+    {
+        width: 100%;
+    }
+ }

@@ -1,0 +1,211 @@
+.exam_center_comp_main_container
+{
+width: 90%;
+margin: auto;
+min-height: 10rem;
+border: 1px solid transparent; 
+margin-top: 1.3rem;
+}
+.exam_center_comp_list
+{
+    width: 99.6%;
+    margin: auto;
+    border: 1px solid transparent;
+    min-height: 20rem;
+     display: grid;
+     grid-template-columns: repeat(5,1fr);
+    column-gap: 1rem;
+    row-gap: 1rem;
+    max-height: 57vh;
+    overflow-y: scroll;
+    scroll-behavior: smooth;
+    margin-top: 1rem;
+    padding-left: 0.4rem;
+    padding-top: 0.4rem;
+    padding-right: 0.4rem;
+    margin-left: -0.6%;
+}
+.exam_center_comp_list::-webkit-scrollbar
+{
+    display: none;
+}
+.exam_center_box_container
+{
+    /* width: 18%; */
+    width: 100%;
+     background-color: white;
+     box-shadow: 0px 0px 8px 5px rgba(0, 0, 0, 0.15);
+     border-radius: 15px;
+   
+}
+.exam_center_box_container:hover
+{
+    transform: scale(1.02);
+    transition: 0.2s ease-in-out;
+}
+.exam_center_box_header
+{
+    width: 93%;
+    margin-left: auto;
+    text-align: left;
+}
+.exam_center_box_header h2
+{
+    margin: 0;
+  font-size: clamp(1.3rem,2vw,1.5rem);
+  margin-top: 1.4rem;
+  
+}
+.exam_center_exam_date
+{
+    width: 93%;
+    margin-left: auto;
+    text-align: left;
+}
+.exam_center_exam_date p
+{
+    margin: 0;
+    margin-top: 0.5rem;
+    color: #7E7E7E;
+    font-size: 0.95rem;
+    font-weight: 450;
+
+}
+.total_active_student_div
+{
+    width: 85%;
+    margin-left: auto;
+    margin-right: auto;
+    background: #E0F4EB;
+    border-left: 3px solid #00A355;
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height:4rem;
+    margin-top: 1rem;
+}
+.total_active_student_div p
+{
+    margin: 0;
+    color: #00A355;
+    width: 93%;
+    margin-left: auto;
+    text-align: left;
+    font-size: 1rem;
+    
+}
+.total_active_student_div h3
+{
+    margin: 0;
+    color: #00A355;
+    text-align: left;
+    width: 93%;
+    margin-left: auto;
+    margin-top: 0.3rem;
+    font-size: 1.1rem;
+}
+.total_malecious_student_div
+{
+    width: 85%;
+    margin-left: auto;
+    margin-right: auto;
+    background: #FBEAEA;
+    border-left: 3px solid #DA4D4D;
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height:4rem;
+    margin-top: 0.5rem;
+}
+.total_malecious_student_div p
+{
+    margin: 0;
+    color: #DA4D4D;
+    width: 93%;
+    margin-left: auto;
+    text-align: left;
+    font-size: 1rem;
+    
+}
+.total_malecious_student_div h3
+{
+    margin: 0;
+    color: #DA4D4D;
+    text-align: left;
+    width: 93%;
+    margin-left: auto;
+    margin-top: 0.3rem;
+    font-size: 1.1rem;
+}
+.view_details
+{
+    width: 85.5%;
+    margin-left: auto;
+    margin-right: auto;
+    border: 1px solid transparent;
+    margin-top: 0.9rem;
+    margin-bottom: 1.7rem;
+}
+.view_details button
+{
+    width: 100%;
+    padding-top: 0.6rem;
+    padding-bottom: 0.7rem;
+    background-color: #CCE9FF;
+    border: none;
+    outline: none;
+    color: #2B3B59;
+    font-weight: 450;
+    font-size: 0.9rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+.view_details button:hover
+{
+    background-color: #5596c7;
+    color: white;
+}
+@media screen and (max-width:1500px) {
+    .exam_center_comp_list
+    {
+       grid-template-columns: repeat(5,1fr);
+    }
+}
+@media screen and (max-width:1200px) {
+    .exam_center_comp_list
+    {
+       grid-template-columns: repeat(4,1fr);
+    }
+}
+@media screen and (max-width:1000px) {
+    .exam_center_comp_list
+    {
+       grid-template-columns: repeat(3,1fr);
+    }
+}
+
+@media screen and (max-width:700px) {
+    .exam_center_comp_list
+    {
+       grid-template-columns: repeat(2,1fr);
+    }
+}
+@media screen and (max-width:450px) {
+    .exam_center_comp_list
+    {
+       grid-template-columns: repeat(1,1fr);
+       max-height: 91vh !important;
+    }
+}
+
+@media screen and (min-width:2000px) {
+    .exam_center_comp_list
+    {
+       grid-template-columns: repeat(auto-fill,19.5rem);
+    }
+}

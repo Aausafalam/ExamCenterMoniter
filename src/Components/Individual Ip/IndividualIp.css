@@ -1,0 +1,232 @@
+.individula_ip_comp_main_container
+{
+    width: 94%;
+    margin: auto;
+    min-height: 10rem;
+    border: 1px solid transparent; 
+    margin-top: 1.3rem;
+    overflow: hidden;
+}
+.ip_details_main_contianer
+{
+    width: 96%;
+    margin: auto;
+    margin-top: 1.6rem;
+    height: max(70vh,500px);
+    border: 1px solid transparent;
+    display: flex;
+    gap: 1rem;
+    /* transition: 0.5s all; */
+}
+.ip_text_info_box
+{
+    width: 20%;
+    max-height: 100%;
+    background-color: white;
+    border-radius: 9px;
+    box-shadow: 0px 0px 8px 5px rgba(0, 0, 0, 0.15);
+    transition: 0.2s ease-in;
+    min-width: 320px;
+      /* overflow-y: scroll; */
+}
+.individual_ip_heading
+{
+    width: 90%;
+    margin: auto;
+    margin-top: 0.5rem;
+    border-bottom: 1px solid #7E7E7E;
+    display: flex;
+    align-items: center;
+    height: 3rem;
+}
+.individual_ip_heading h2
+{
+    margin: 0;
+    margin-left: 1rem;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+}
+.active_button,.inactive_button,.malicious_button
+{
+    background-color: rgba(224, 244, 235, 1);
+    color: rgba(0, 163, 85, 1);
+    padding-left: 1rem;
+    padding-top: 0.4rem;
+    padding-bottom: 0.4rem;
+    padding-right: 1rem;
+    border-radius: 0.9rem;
+    border: none;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-weight: 500;
+    margin-left: auto;
+    font-size: 0.9rem;
+}
+.inactive_button
+{
+    background-color: #FCF2EB;
+    color: rgba(229, 146, 86, 1);
+}
+.malicious_button
+{
+    background-color: rgba(251, 234, 234, 1);
+    color:  #DA4D4D;
+}
+.main_ip_address
+{
+    width: 90%;
+    margin: auto;
+}
+.main_ip_address h2
+{
+    margin: 0;
+    font-weight: 450;
+    font-size: 1.02rem;
+    color: rgba(126, 126, 126, 1);
+    margin-top: 1.6rem;
+    width: fit-content;
+    text-align: left;
+}
+.main_ip_address h4
+{
+    margin: 0;
+    margin-top: 0.8rem;
+    font-size: 1.5rem;
+    width: fit-content;
+    font-weight: 450;
+    text-align: left;
+    color: rgba(1, 79, 197, 1);
+}
+.other_connection_ip_address
+{
+   width: 90%;
+   /* min-height: 50%; */
+   height: 70%;
+   border: 1px solid transparent; 
+   margin: auto;
+   margin-top: max(5.8vh,2rem);
+   /* display: flex;
+   flex-direction: column; */
+}
+.other_connection_ip_address h3
+{
+    color: #7E7E7E;
+    margin: 0;
+    font-size: 0.95rem;
+    font-weight: 450;
+    width: fit-content;
+    text-align: left;
+}
+.list_of_other_connections
+{
+    width: 100%;
+    height: 90%;
+    background: #F3F3F3;
+border-radius: 5px;
+margin-top: 0.5rem;
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+/* border: 1px solid #f1ecec; */
+}
+.list_of_other_connections p
+{
+    font-size: 1.5rem;
+}
+
+.ip_cytoscope_container
+{
+    width: 78.5%;
+    background-color: white;
+    min-height: 100%;
+    margin-left: auto;
+    border-radius: 10px;
+    position: relative;
+    transition: 0.5s all;
+}
+.ip_list
+{
+
+    display: flex;
+    flex-direction: column !important;
+}
+.ip_list p
+{
+    font-size: 1.1rem;
+    margin-top: 0.4rem;
+    color: red;
+}
+.singleIp
+{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.full_size_cytoscape
+{
+    width: 3.5rem;
+    height: 3.5rem;
+    background-color: white;
+    position: absolute;
+    top: 1.2rem;
+    left: auto;
+    right: 1.2rem;
+    background: #FFFFFF;
+box-shadow: 0px 0px 10px rgba(43, 59, 89, 0.2);
+border-radius: 5px;
+display: flex;
+align-items: center;
+justify-content: center;
+cursor: pointer;
+}
+/* @media screen and (max-width: 1700px) {
+    .ip_details_main_contianer
+{
+    width: 96%;
+    margin: auto;
+    margin-top: 1.6rem;
+    height: max(70vh,500px);
+    border: 1px solid transparent;
+    display: flex;
+    min-width: 1700px;
+    overflow: scroll !important;
+}
+.ip_details_main_contianer::-webkit-scrollbar
+{
+    display: block !important;
+}
+} */
+
+@media screen and (max-width:1320px) {
+   .ip_details_main_contianer
+   {
+     flex-direction: column;
+   } 
+   .ip_text_info_box
+   {
+    width: 100%;
+    
+   }
+   .list_of_other_connections
+{
+    width: 100%;
+    height: 200px;
+    overflow-y: scroll !important;
+}
+.ip_cytoscope_container
+{
+    width: 100%;
+
+}
+.full_size_cytoscape
+{
+    display: none;
+}
+.individula_ip_comp_main_container
+{
+   
+    overflow: visible;
+}
+}
