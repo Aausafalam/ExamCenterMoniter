@@ -56,7 +56,7 @@ const IndividualIp = ({name,id,pc,data={
          <Navigation name={name} id={id} pc={pc}/>
          <div className="ip_details_main_contianer">
             <div  style={{
-                // display : lengthCytoscape?"none" : "",
+                 display : lengthCytoscape?"none" : "",
                 visibility:lengthCytoscape?"hidden":"",
                 width:lengthCytoscape ? "0" : ""
             }} className="ip_text_info_box">
