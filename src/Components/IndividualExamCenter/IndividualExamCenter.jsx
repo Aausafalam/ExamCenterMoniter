@@ -1,27 +1,30 @@
 import React from 'react'
 import { useNavigate } from 'react-router'
+import { useUserContext } from '../../ApiIntegration/LoginContext'
 import { HeadLine } from '../Overview/Overview'
 import "./IndividualExamCenter.css"
 import { IndividualExamData } from './IndividualExamCenterData'
 
 
 const ClassContainer = ({name,setNavigationData,data}) => {
+  const {totalActive,totalMalicious,totalInActive} = useUserContext()
   const navigate= useNavigate()
+  let totalRegiteredStudent = totalActive+totalInActive
   return <div className="class_comp_main_container">
        <div className="class_comp_heading">
         <h2>{data?.name?.toUpperCase()}</h2>
-        <p>Exam Date : 23 Jan 2023</p>
+        <p>Exam Date : {data?.examDate}</p>
        </div>
        <div className="class_comp_details">
-        <p className="total_registered_student">Total Registered Students : {data?.totalRegiteredStudent}</p>
+        <p className="total_registered_student">Total Registered Students : {totalRegiteredStudent<10?"0"+totalRegiteredStudent:totalRegiteredStudent}</p>
         <p className="total_active_student">
-        Total Active Students : {data?.totalActiveStudent}
+        Total Active Students : {totalActive<10?"0"+totalActive:totalActive}
         </p>
         <p className="total_inactive_student">
-        Total Inactive Students : {data?.totalInActiveStudent}
+        Total Inactive Students : {totalInActive<10?"0"+totalInActive:totalInActive}
         </p>
         <p className="total_malicious_student">
-        Total Malicious Students : {data?.totalMaliciousStudent}
+        Total Malicious Students : {totalMalicious<10?"0"+totalMalicious:totalMalicious}
         </p>
        </div>
        <div className="class_comp_view_details">

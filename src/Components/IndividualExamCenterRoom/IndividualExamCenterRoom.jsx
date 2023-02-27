@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router'
+import { useUserContext } from '../../ApiIntegration/LoginContext'
 import { NavigationIcon, PCIcon, PCIcons } from '../../SVG/ExamCenterRoom'
 import { HeadLine } from '../Overview/Overview'
 import "./IndividualExamCenterRoom.css"
@@ -24,17 +25,23 @@ const Navigation = ({data,name,id}) => {
 
 const IndividualPcBox = ({data,name,id}) =>{
     const navigate = useNavigate()
+    const {getPerticularIpConnection} = useUserContext()
     return <div className="individual_pc_main_container">
           <div className="individual_pc_heading">
-                {PCIcons(data.status.toLowerCase() == "malicious" ? "#DA4D4D" : "#353535")}
-                <h2 style={{color:data.status.toLowerCase() == "malicious" ? "#DA4D4D" : "",
-            textTransform:"capitalize"}}>{data?.name}</h2>
-                <button className={data.status.toLowerCase() == "active" ?'active_button' :data.status.toLowerCase() == "inactive" ? "inactive_button" :"malicious_button" }>{data?.status}</button>
+                {PCIcons(data.field_status?.toLowerCase() == "malicious" ? "#DA4D4D" : "#353535")}
+                <h2 style={{color:data?.field_status?.toLowerCase() == "malicious" ? "#DA4D4D" : "",
+            textTransform:"capitalize"}}> PC {data?.field_candidateip?.split(".")[data?.field_candidateip?.split(".").length-1]}</h2>
+                <button className={data?.field_status?.toLowerCase() == "active" ?'active_button' :data?.field_status?.toLowerCase() == "inactive" ? "inactive_button" :"malicious_button" }>{data?.field_status}</button>
           </div>
           <div className="individual_pc_body">
-            <h4>IP Address : <span>{data?.ip}</span></h4>
+            <h4>IP Address : <span>{data?.field_candidateip}</span></h4>
             <button onClick={()=>{
-                navigate(`/examcenter/${name}/${id}/${data?.name}`)
+               localStorage.setItem("ipDetails",JSON.stringify({
+                ip: data?.field_candidateip,
+                status:data?.field_status
+               }))
+               getPerticularIpConnection(data?.field_candidateip,data?.field_status)
+                navigate(`/examcenter/${name}/${id}/PC ${data?.field_candidateip?.split(".")[data?.field_candidateip?.split(".").length-1]}`)
             }}>view ip details</button>
           </div>
     </div>
@@ -43,19 +50,19 @@ const IndividualPcBox = ({data,name,id}) =>{
 const IndividualExamCenterRoom = ({navigationData,name,id}) => {
 
    const [roomData,setRoomData] = useState()
-    
+     const {totalActiveUsersList,totalInactiveUsersList,totalMaliciousUsersList,listOfIp} = useUserContext()
 
    const handleRoomData = (roomData) =>
    {
       let newData = []
       roomData.forEach((data)=>{
-           if(data?.status?.toLowerCase() == "malicious")
+           if(data?.field_status?.toLowerCase() == "malicious")
            {
             newData.push(data)
            }
       })
       roomData.forEach((data)=>{
-        if(data?.status?.toLowerCase() != "malicious")
+        if(data?.field_status?.toLowerCase() != "malicious")
         {
          newData.push(data)
         }
@@ -66,7 +73,7 @@ const IndividualExamCenterRoom = ({navigationData,name,id}) => {
    }
 
    useEffect(()=>{
-       handleRoomData(IndividualRoomData)
+       handleRoomData(listOfIp)
    },[])
 
 
@@ -78,7 +85,7 @@ const IndividualExamCenterRoom = ({navigationData,name,id}) => {
      <Navigation id={id} name={name} data={navigationData}/>
      <div className="individual_room_pc_list">
        {
-        roomData?.map((data)=>{
+        listOfIp?.map((data)=>{
             return <IndividualPcBox id={id} name={name}data={data}/>
         })
        }

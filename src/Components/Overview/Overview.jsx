@@ -1,10 +1,16 @@
 import React from 'react'
+import { useEffect } from 'react'
+import { useUserContext } from '../../ApiIntegration/LoginContext'
 import "./Overview.css"
 import { overviewContainerData } from './OverviewData'
 
 
 
 const OverViewBody = ({color,icon,title,value}) => {
+
+    const {totalMalicious,totalActive,totalInActive} = useUserContext()
+
+
     return <div  className="overview_body_comp_contianer">
         <div style={{
           background:color
@@ -15,7 +21,14 @@ const OverViewBody = ({color,icon,title,value}) => {
          <h3>{title}</h3>
         </div>
         <div className="overview_body_comp_value">
-         <h2>{value}</h2>
+         <h2>
+          {
+            title== "Total Malicious Students" ? totalMalicious : title=="Total Active Students" ?  totalActive :
+            title=="Total Inactive Students"?totalInActive: title == "Highest Malicious Examination Center"? (totalMalicious>0)? "EC1" : "No" :value
+          }
+          
+          
+          </h2>
         </div>
     </div>
 }
@@ -34,7 +47,13 @@ const Overview = () => {
 
  
 
+  const {getTotalMaliciousCount,getTotalActiveCount,getTotalInActiveCount} = useUserContext()
 
+ useEffect(()=>{
+  getTotalMaliciousCount()
+  getTotalActiveCount()
+  getTotalInActiveCount()
+ },[])
 
   return (<div className="overview_comp_main_container">
          <HeadLine value="Overview" />

@@ -5,6 +5,9 @@ import { IndividualRoomData } from '../IndividualExamCenterRoom/IndividualExamCe
 import StudentGraph from '../StudentGraph/StudentGraph'
 import "./IndividualIp.css"
 import pcIcon from "../../Accets/Group 118.png"
+import { useUserContext } from '../../ApiIntegration/LoginContext'
+
+
 const Navigation = ({name,id,pc}) => {
     const navigate= useNavigate()
     return <div className="navigation_br">
@@ -35,16 +38,18 @@ const IndividualIp = ({name,id,pc,data={
         const [lengthCytoscape,setLengthCytoscape] = useState(false)
     const [IpData,setIpData] = useState({})
      const [graphData,setGraphData] = useState({})
+     const {perticularIpConnection} = useUserContext()
+     console.log(perticularIpConnection)
     useEffect(()=>{
         const IpDatas = IndividualRoomData.find((data) =>{
             return data?.name?.toLowerCase() === pc?.toLowerCase()
          })
-         setIpData(IpDatas)
+         setIpData(perticularIpConnection)
          const Data = {
-            Ip:IpDatas?.ip,
+            Ip:perticularIpConnection?.ip,
             room:"",
             center:"",
-            connected:IpDatas?.connected
+            connected:perticularIpConnection?.connected
          }
          setGraphData(Data)
         
@@ -64,17 +69,17 @@ const IndividualIp = ({name,id,pc,data={
                 {PCIcons(IpData?.status?.toLowerCase() == "malicious" ? "#DA4D4D" : "#353535")}
                 <h2 style={{color:IpData?.status?.toLowerCase() == "malicious" ? "#DA4D4D" : "",
             textTransform:"capitalize"}}>{pc}</h2>
-                <button className={IpData?.status?.toLowerCase() == "active" ?'active_button' :IpData?.status?.toLowerCase() == "inactive" ? "inactive_button" :"malicious_button" }>{IpData?.status}</button>
+                <button className={perticularIpConnection?.status?.toLowerCase() == "active" ?'active_button' :perticularIpConnection?.status?.toLowerCase() == "inactive" ? "inactive_button" :"malicious_button" }>{perticularIpConnection?.status}</button>
           </div>
           <div className="main_ip_address">
             <h2>Main IP Address</h2>
-            <h4>{IpData?.ip}</h4>
+            <h4>{perticularIpConnection?.ip}</h4>
           </div>
           <div className="other_connection_ip_address">
              <h3>Other Connected IP Address </h3>
              <div className="list_of_other_connections">
                 {
-                    IpData?.connected?.length != 0 ? IpData?.connected?.map((data)=>{
+                    perticularIpConnection?.connected?.length != 0 ? perticularIpConnection?.connected?.map((data)=>{
                         return <div className="ip_list">
                             <p>{data?.ip}</p>
                         </div>
@@ -116,3 +121,6 @@ const IndividualIp = ({name,id,pc,data={
 }
 
 export default IndividualIp
+
+
+//https://codesandbox.io/s/vanilla-qmgiu?file=/src/index.js

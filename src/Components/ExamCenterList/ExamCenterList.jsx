@@ -1,10 +1,12 @@
 import React from 'react'
 import { useNavigate } from 'react-router'
+import { useUserContext } from '../../ApiIntegration/LoginContext'
 import { HeadLine } from '../Overview/Overview'
 import "./ExamCenterList.css"
 import { ExamCenterListData } from './ExamCenterListData'
 
 const ExamCenterContainer = ({data}) => {
+  const {totalActive,totalMalicious} = useUserContext()
   const navigate= useNavigate()
     return <div  className="exam_center_box_container">
       <div className="exam_center_box_header">
@@ -15,11 +17,11 @@ const ExamCenterContainer = ({data}) => {
       </div>
       <div className="total_active_student_div">
         <p>Total Active Students</p>
-        <h3>{data.activeStudents}</h3>
+        <h3>{totalActive<10?"0"+totalActive:totalActive}</h3>
       </div>
       <div className="total_malecious_student_div">
         <p>Total Malecious Students</p>
-        <h3>{data.maleciousStudents}</h3>
+        <h3>{totalMalicious<10?"0"+totalMalicious:totalMalicious}</h3>
       </div>
       <div className="view_details">
         <button onClick={()=>{

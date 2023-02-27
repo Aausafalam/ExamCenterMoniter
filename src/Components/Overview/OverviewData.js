@@ -1,14 +1,16 @@
+import { useUserContext } from '../../ApiIntegration/LoginContext'
 import { examCenterIcon , maleciousCenterIcon,maleciousStudentIcon,activeStudentIcon,
     inActiveStudentIcon} from '../../SVG/Home'
+
 export const overviewContainerData = [{
     title:"Total Examination Center",
-    value:"54",
+    value:"01",
     icon:examCenterIcon,
     color:"rgba(90, 69, 238, 0.12)"
 },
 {
     title:"Highest Malicious Examination Center",
-    value:"EC5",
+    value:"EC1",
     icon:maleciousCenterIcon,
     color:"rgba(255, 92, 0, 0.12)"
 },
