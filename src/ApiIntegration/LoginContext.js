@@ -94,10 +94,22 @@ const getIpList = () => {
 
 }
 
+function removeDuplicateIPs(arr) {
+   const uniqueIPs = new Set(); // Use a Set to store unique IPs
+   const result = [];
+ 
+   for (const obj of arr) {
+     if (!uniqueIPs.has(obj.ip)) { // Check if IP is unique
+       uniqueIPs.add(obj.ip); // Add IP to Set
+       result.push(obj); // Add object to result array
+     }
+   }
+ 
+   return result;
+ }
+const getPerticularIpConnection = async(id="192.168.1.1",status) => {
 
-const getPerticularIpConnection = (id="192.168.1.1",status) => {
-
-    axios.get(`${BASE_URL}/myip?field_sipv4_target_id=192.168.1.1&?_format=json`)
+  await  axios.get(`${BASE_URL}/myip?field_sipv4_target_id=192.168.1.1&?_format=json`)
     .then((response) =>{
     //    console.log(response.data)
        let connected = []
@@ -110,7 +122,7 @@ const getPerticularIpConnection = (id="192.168.1.1",status) => {
        let data = {
         ip : id,
          status: status,
-         connected:connected
+         connected:removeDuplicateIPs(connected)
        }
 
      setperticularIpConnection(data)

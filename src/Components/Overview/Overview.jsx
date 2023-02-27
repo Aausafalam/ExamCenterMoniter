@@ -23,7 +23,7 @@ const OverViewBody = ({color,icon,title,value}) => {
         <div className="overview_body_comp_value">
          <h2>
           {
-            title== "Total Malicious Students" ? totalMalicious : title=="Total Active Students" ?  totalActive :
+            title== "Total Malicious Students" ? totalMalicious>9 ? totalMalicious:"0"+totalMalicious : title=="Total Active Students" ?  (totalActive>9)?totalActive:"0"+totalActive :
             title=="Total Inactive Students"?totalInActive: title == "Highest Malicious Examination Center"? (totalMalicious>0)? "EC1" : "No" :value
           }
           
@@ -50,9 +50,11 @@ const Overview = () => {
   const {getTotalMaliciousCount,getTotalActiveCount,getTotalInActiveCount} = useUserContext()
 
  useEffect(()=>{
+ setInterval(() => {
   getTotalMaliciousCount()
   getTotalActiveCount()
   getTotalInActiveCount()
+ }, 1000);
  },[])
 
   return (<div className="overview_comp_main_container">

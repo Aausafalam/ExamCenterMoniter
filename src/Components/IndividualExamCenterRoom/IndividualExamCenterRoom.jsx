@@ -35,12 +35,12 @@ const IndividualPcBox = ({data,name,id}) =>{
           </div>
           <div className="individual_pc_body">
             <h4>IP Address : <span>{data?.field_candidateip}</span></h4>
-            <button onClick={()=>{
+            <button onClick={async()=>{
                localStorage.setItem("ipDetails",JSON.stringify({
                 ip: data?.field_candidateip,
                 status:data?.field_status
                }))
-               getPerticularIpConnection(data?.field_candidateip,data?.field_status)
+              await getPerticularIpConnection(data?.field_candidateip,data?.field_status)
                 navigate(`/examcenter/${name}/${id}/PC ${data?.field_candidateip?.split(".")[data?.field_candidateip?.split(".").length-1]}`)
             }}>view ip details</button>
           </div>

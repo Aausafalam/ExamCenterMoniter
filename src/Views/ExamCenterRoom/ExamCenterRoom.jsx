@@ -10,7 +10,9 @@ const ExamCenterRoom = ({navigationData}) => {
     const {getIpList,getTotalMaliciousCount,getTotalActiveCount,getTotalInActiveCount} = useUserContext()
 
    useEffect(()=>{
+   setInterval(()=>{
     getIpList()
+   },1000)
     getTotalMaliciousCount()
     getTotalActiveCount()
     getTotalInActiveCount()

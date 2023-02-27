@@ -12,12 +12,14 @@ const IpDetails = () => {
     const {name,id,pc}= useParams()
     
     useEffect(()=>{
+     setInterval(()=>{
       if(localStorage.getItem("ipDetails"))
       {
         let data = JSON.parse(localStorage.getItem("ipDetails"));
         getPerticularIpConnection(data.ip,data.status)
 
       }
+     },1000)
     },[])
 
 

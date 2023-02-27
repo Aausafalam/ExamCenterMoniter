@@ -51,7 +51,12 @@ const IndividualIp = ({name,id,pc,data={
             center:"",
             connected:perticularIpConnection?.connected
          }
-         setGraphData(Data)
+         setGraphData({
+            Ip:perticularIpConnection?.ip,
+            room:"",
+            center:"",
+            connected:perticularIpConnection?.connected
+         })
         
     },[])
 
@@ -93,9 +98,12 @@ const IndividualIp = ({name,id,pc,data={
                     width: lengthCytoscape ? "100%":""
                 }} className="ip_cytoscope_container">
                 {
-                    IpData?.status?.toLowerCase() == "malicious"?<StudentGraph studentGraphData = {graphData}/> : <div className="singleIp">
-                        <img src={pcIcon} alt="" />
-                    </div>
+                   <StudentGraph studentGraphData = {{
+                    Ip:perticularIpConnection?.ip,
+                    room:"",
+                    center:"",
+                    connected:perticularIpConnection?.connected
+                 }}/> 
                 }
                 <div  onClick={()=>{
                    setLengthCytoscape(!lengthCytoscape)

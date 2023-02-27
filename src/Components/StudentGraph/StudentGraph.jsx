@@ -3,9 +3,16 @@ import "./StudentGraph.css";
 import CytoscapeComponent from "react-cytoscapejs";
 import pcIcon from "../../Accets/Group 118.png"
 import pcIcon2 from "../../Accets/Group 129.png"
+import { useUserContext } from "../../ApiIntegration/LoginContext";
 
 
 export default function StudentGraph({studentGraphData}) {
+  const {perticularIpConnection,getPerticularIpConnection} = useUserContext()
+
+  useEffect(()=>{
+    getPerticularIpConnection()
+  },[])
+  console.log(perticularIpConnection)
   const [width, setWith] = useState("100%");
   const [height, setHeight] = useState("60vh");
   const [graphData, setGraphData] = useState({
@@ -68,7 +75,7 @@ const getGraphData = async(data)=>{
   nodes.push({
     data:{
        id:(nodes.length+1).toString(),
-       label: data?.Ip?.split(".")[data.Ip.split(".").length-1],
+       label: data?.ip?.split(".")[data.ip.split(".").length-1],
        type:"ip"
     }
 
@@ -77,7 +84,7 @@ const getGraphData = async(data)=>{
     nodes.push({
       data:{
          id:(nodes.length+1).toString(),
-         label: ele?.Ip?.split(".")[ele?.Ip?.split(".").length-1],
+         label: ele?.ip,
          type:"device"
       }
   
@@ -108,22 +115,24 @@ const getGraphData = async(data)=>{
   
 }
 // console.log(graphData)
+ const initiallized = () => {
+  if(perticularIpConnection?.connected)
+  {
+   // console.log("function")
+getGraphData(perticularIpConnection)
 
-useEffect(()=>{
-   if(studentGraphData?.connected)
-   {
-    // console.log("function")
-getGraphData(studentGraphData)
-
-   }
-   else if (localStorage.getItem("graphData"))
-   {
-    let data = JSON.parse(localStorage.getItem("graphData"))
+  }
+  else if (localStorage.getItem("graphData"))
+  {
+   let data = JSON.parse(localStorage.getItem("graphData"))
 //  console.log(data)
 //  console.log("JDSO")
- setGraphData(data)
+setGraphData(data)
 
-   }
+  }
+ }
+useEffect(()=>{
+  initiallized()
  
 },[])
 
